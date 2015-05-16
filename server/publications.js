@@ -10,3 +10,7 @@ Meteor.publish('userData', function () {
 Meteor.publish('allPolls', function () {
   return Polls.find();
 });
+
+Meteor.publish('polls', function() {
+  return Polls.find({});
+});

@@ -1,7 +1,7 @@
 <template name="Polls">
   <div class="page-header">
     <h1>Polls:
-      <button type="button" class="btn btn-default btn-lg pull-right">
+      <button type="button" class="btn btn-default btn-lg pull-right submit-new-poll">
         <i class="fa fa-plus"></i> Make a new poll
       </button>
     </h1>
@@ -9,7 +9,7 @@
   <ul class="list-group">
     {{#each polls}}
       {{> pollItem}}
-    {{else}}
+      {{else}}
       <p>No polls found.</p>
     {{/each}}
   </ul>
@@ -17,7 +17,7 @@
 
 <template name="pollItem">
   <li class="list-group-item poll-item">
-    <h2>{{name}}</h2>
+    <h2>{{title}}</h2>
     <a href="{{pathFor 'poll' id=_id}}">
       <button type="button" class="btn btn-success btn-xs">
         <i class="fa fa-eye"></i> View

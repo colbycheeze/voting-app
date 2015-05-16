@@ -40,7 +40,6 @@ FlowRouter.route('/polls', {
     this.register('allPolls', Meteor.subscribe('allPolls'));
   },
   name: 'polls',
-  middlewares: [requiredLogin],
   action: function() {
     FlowLayout.render('appLayout', { header: 'header', content: 'Polls', footer: 'footer' });
   }
@@ -48,14 +47,14 @@ FlowRouter.route('/polls', {
 
 FlowRouter.route('/submit', {
   name: 'submit',
+  middlewares: [requiredLogin],
   action: function(params) {
-    FlowLayout.render('appLayout', { header: 'header', content: 'Submit', footer: 'footer' });
+    FlowLayout.render('appLayout', { header: 'header', content: 'newPoll', footer: 'footer' });
   }
 });
 
 FlowRouter.route('/polls/:id', {
   name: 'poll',
-  middlewares: [requiredLogin],
   action: function(params) {
     FlowLayout.render('appLayout', { header: 'header', content: 'Poll', footer: 'footer' });
   }
