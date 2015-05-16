@@ -2,7 +2,7 @@ Template.header.events({
   'click [role="logout"]': function (e, tmpl) {
     Meteor.logout();
     e.preventDefault();
-  },
+  }
 });
 
 Template.header.helpers({
