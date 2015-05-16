@@ -1,16 +1,25 @@
 Polls = new Mongo.Collection("Polls");
-Schema = {};
-Schema.Polls = new SimpleSchema({
-  title: {
+
+this.Schemas || (this.Schemas = {});
+this.Schemas.Polls = new SimpleSchema({
+  pollName: {
     type: String,
-    max: 100
+    label: 'Poll Title'
   },
-  options: {
-    type: String,
-    max: 200
+  pollValues: {
+    type: [String],
+    label: 'pollValues'
   }
+
 });
 
+Polls.attachSchema(this.Schemas.Polls);
 
-
-
+/*Schemas.Checklist = new SimpleSchema({
+    name: { type: String },
+    releaseCreation: { type: Array, optional: true },
+    'releaseCreation.$': { type: Object },
+    'releaseCreation.$.index': { type: Number },
+    'releaseCreation.$.description': { type: String },
+    'releaseCreation.$.completed': { type: Boolean }
+});*/

@@ -39,7 +39,7 @@ FlowRouter.route('/polls', {
 FlowRouter.route('/submit', {
   name: 'submit',
   action: function(params) {
-    FlowLayout.render('appLayout', { header: 'header', content: 'Submit', footer: 'footer' });
+    FlowLayout.render('appLayout', { header: 'header', content: 'newPoll', footer: 'footer' });
   }
 });
 
