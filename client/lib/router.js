@@ -12,10 +12,17 @@ Accounts.onLogin(function () {
   FlowRouter.go('polls');
 });
 
+FlowRouter.notFound = {
+  name: 'not_found',
+  action: function() {
+    FlowLayout.render('appLayout', { header: 'header', content: '404', footer: 'footer' });
+  }
+};
+
 FlowRouter.route('/', {
   name: 'home',
   middlewares: [redirectAfterLogin],
-  action: function(params) {
+  action: function() {
     FlowLayout.render('appLayout', { header: 'header', content: 'Home', footer: 'footer' });
   }
 });
@@ -23,7 +30,7 @@ FlowRouter.route('/', {
 FlowRouter.route('/login', {
   name: 'login',
   middlewares: [redirectAfterLogin],
-  action: function(params) {
+  action: function() {
     FlowLayout.render('appLayout', { header: 'header', content: 'Login', footer: 'footer' });
   }
 });
@@ -34,7 +41,7 @@ FlowRouter.route('/polls', {
   },
   name: 'polls',
   middlewares: [requiredLogin],
-  action: function(params) {
+  action: function() {
     FlowLayout.render('appLayout', { header: 'header', content: 'Polls', footer: 'footer' });
   }
 });

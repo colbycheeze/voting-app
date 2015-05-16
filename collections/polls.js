@@ -3,9 +3,11 @@ Schema = {};
 Schema.Polls = new SimpleSchema({
   title: {
     type: String,
+    max: 100
   },
   options: {
-    type: String
+    type: String,
+    max: 200
   }
 });
 

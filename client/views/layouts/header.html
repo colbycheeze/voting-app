@@ -19,7 +19,7 @@
           {{#if currentUser}}
             <li> <img class="avatar" src="{{currentUser.services.google.picture}}"> </li>
             <li> <a href="#">{{currentUser.profile.name}}</a> </li>
-            <li> <a role="logout" href="#">Logout</a> </li>
+            <li> <a role="logout" href="#">Logout <i class="fa fa-sign-out"></i></a></li>
             {{else}}
             <li class="{{isActivePath regex='login' className='active'}}"><a href="{{pathFor 'login'}}">Login</a></li>
           {{/if}}
