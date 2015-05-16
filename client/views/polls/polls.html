@@ -1,2 +1,19 @@
 <template name="Polls">
+  <div class="page-header">
+    <h1>Polls:
+      <button type="button" class="btn btn-default btn-lg pull-right">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Make a new poll
+      </button>
+    </h1>
+  </div>
+
+  {{#each polls}}
+    {{> poll}}
+  {{else}}
+    <p>No polls found.</p>
+  {{/each}}
+</template>
+
+<template name="poll">
+  <p>Some poll.</p>
 </template>
