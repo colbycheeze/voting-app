@@ -1,6 +1,8 @@
 Polls = new Mongo.Collection("Polls");
-Schema = {};
-Schema.Polls = new SimpleSchema({
+
+this.Schemas || (this.Schemas = {});
+this.Schemas.Polls = new SimpleSchema({
+
   title: {
     type: String,
     max: 100
@@ -11,6 +13,4 @@ Schema.Polls = new SimpleSchema({
   }
 });
 
-
-
-
+Polls.attachSchema(this.Schemas.Polls);
