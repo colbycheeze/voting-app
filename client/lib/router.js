@@ -29,6 +29,9 @@ FlowRouter.route('/login', {
 });
 
 FlowRouter.route('/polls', {
+  subscriptions: function(params) {
+    this.register('allPolls', Meteor.subscribe('allPolls'));
+  },
   name: 'polls',
   middlewares: [requiredLogin],
   action: function(params) {
