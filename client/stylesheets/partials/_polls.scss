@@ -1,4 +1,15 @@
-.poll-item > * {
- display: inline;
+.poll-item {
+ display: block;
  vertical-align: middle;
+ overflow: auto;
+
+ h2 {
+   float: left;
+   margin: 0px;
+ }
+
+ .action-buttons {
+   display: inline-block;
+   float: right;
+ }
 }

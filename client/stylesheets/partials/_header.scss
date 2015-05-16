@@ -1,5 +1,13 @@
+.navbar-brand {
+  margin-left: 10px;
+  padding-top: 0px;
+
+  img {
+    height: 2.5em;
+  }
+}
 .avatar {
-  border-radius: $base-border-radius;
-  width: 3em;
+  border-radius: 50%;
+  width: 2.5em;
   margin: $base-spacing / 4 ;
 }

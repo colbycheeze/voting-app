@@ -1,7 +1,6 @@
 <template name="header">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
@@ -9,17 +8,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Voting App</a>
+        <a class="navbar-brand" href="/"><img src="http://img4.wikia.nocookie.net/__cb20140224023949/althistory/images/9/9a/Vote-icon.png" alt="Voting App"></a>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {{#if currentUser}}
             <li> <img class="avatar" src="{{currentUser.services.google.picture}}"> </li>
-            <li> <a href="#">{{currentUser.profile.name}}</a> </li>
-            <li> <a role="logout" href="#">Logout <i class="fa fa-sign-out"></i></a></li>
+            <li> <a href="#"><i class="fa fa-user"></i> {{currentUser.profile.name}}</a> </li>
+            <li> <a role="logout" href="#"><i class="fa fa-sign-out"> Logout</i></a></li>
           {{else}}
             <li class="{{isActivePath regex='login' className='active'}}"><a href="{{pathFor 'login'}}">Login</a></li>
           {{/if}}
