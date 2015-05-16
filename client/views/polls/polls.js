@@ -1,11 +1,15 @@
+Template.Polls.onRendered(function (){
+  this.subscribe('polls');
+});
+
 Template.Polls.helpers({
   polls: function () {
-    Polls.find({ userId: Meteor.userId() });
+    return Polls.find({userId: Meteor.userId()});
   }
 });
 
 Template.Polls.events({
-'click button.submit-new-poll': function () {
-  FlowRouter.go('/submit');
-}
+  'click button.submit-new-poll': function () {
+    FlowRouter.go('/submit');
+  }
 });

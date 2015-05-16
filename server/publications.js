@@ -6,3 +6,7 @@ Meteor.publish('userData', function () {
     this.ready();
   }
 });
+
+Meteor.publish('polls', function() {
+  return Polls.find({});
+});

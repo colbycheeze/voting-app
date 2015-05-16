@@ -30,7 +30,6 @@ FlowRouter.route('/login', {
 
 FlowRouter.route('/polls', {
   name: 'polls',
-  middlewares: [requiredLogin],
   action: function(params) {
     FlowLayout.render('appLayout', { header: 'header', content: 'Polls', footer: 'footer' });
   }
@@ -38,6 +37,7 @@ FlowRouter.route('/polls', {
 
 FlowRouter.route('/submit', {
   name: 'submit',
+  middlewares: [requiredLogin],
   action: function(params) {
     FlowLayout.render('appLayout', { header: 'header', content: 'newPoll', footer: 'footer' });
   }
@@ -45,7 +45,6 @@ FlowRouter.route('/submit', {
 
 FlowRouter.route('/polls/:id', {
   name: 'poll',
-  middlewares: [requiredLogin],
   action: function(params) {
     FlowLayout.render('appLayout', { header: 'header', content: 'Poll', footer: 'footer' });
   }
