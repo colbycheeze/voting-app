@@ -26,6 +26,13 @@ FlowRouter.route('/polls', {
   }
 });
 
+FlowRouter.route('/submit', {
+  name: 'submit',
+  action: function(params) {
+    FlowLayout.render('appLayout', { header: 'header', content: 'Submit', footer: 'footer' });
+  }
+});
+
 FlowRouter.route('/polls/:id', {
   name: 'poll',
   action: function(params) {

@@ -1,0 +1,10 @@
+<template name="newPoll">
+
+{{#autoForm collection="Polls" type="insert" id="reactiveCurrentValueForm"}}
+  {{> afQuickField name="title" options="allowed"}}
+  {{> afQuickField name="options"}}
+  <p>The current value of the "A" field is {{currentFieldValue "title"}}.</p>
+  <p>The current value of the "C" field is {{currentFieldValue2 "options"}}.</p>
+{{/autoForm}}
+
+</template>
