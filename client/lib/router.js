@@ -11,3 +11,17 @@ FlowRouter.route('/login', {
     FlowLayout.render('appLayout', { header: 'header', content: 'Login', footer: 'footer' });
   }
 });
+
+FlowRouter.route('/polls', {
+  name: 'polls',
+  action: function(params) {
+    FlowLayout.render('appLayout', { header: 'header', content: 'Polls', footer: 'footer' });
+  }
+});
+
+FlowRouter.route('/polls/:id', {
+  name: 'poll',
+  action: function(params) {
+    FlowLayout.render('appLayout', { header: 'header', content: 'Poll', footer: 'footer' });
+  }
+});
