@@ -6,14 +6,26 @@
       </button>
     </h1>
   </div>
-
-  {{#each polls}}
-    {{> poll}}
-  {{else}}
-    <p>No polls found.</p>
-  {{/each}}
+  <ul class="list-group">
+    {{#each polls}}
+      {{> pollItem}}
+    {{else}}
+      <p>No polls found.</p>
+    {{/each}}
+    {{> pollItem}}
+  </ul>
 </template>
 
-<template name="poll">
-  <p>Some poll.</p>
+<template name="pollItem">
+  <li class="list-group-item poll-item">
+    <h2>{{name}}</h2>
+    <a href="{{pathFor 'poll' id=_id}}">
+      <button type="button" class="btn btn-success btn-xs">
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> View
+      </button>
+    </a>
+    <button type="button" class="btn btn-danger btn-xs">
+      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Close
+    </button>
+  </li>
 </template>
