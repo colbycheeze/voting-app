@@ -5,8 +5,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 reywood:bootstrap3-sass
 ian:accounts-ui-bootstrap-3
 meteorhacks:flow-router
@@ -17,3 +15,4 @@ accounts-google
 accounts-password
 accounts-github
 meteorhacks:fast-render
+msavin:mongol
