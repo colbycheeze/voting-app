@@ -8,8 +8,8 @@ meteor-platform
 autopublish
 insecure
 reywood:bootstrap3-sass
-fourseven:scss
 ian:accounts-ui-bootstrap-3
 meteorhacks:flow-router
 meteorhacks:flow-layout
 arillo:flow-router-helpers
+fourseven:scss@2.1.1
