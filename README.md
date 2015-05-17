@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/colbycheeze/voting-app.png?label=ready&title=Ready)](https://waffle.io/colbycheeze/voting-app)
 #Collab project for CodeBuddies.org
 
 [Click here for the hangout](http://hangouts.codebuddies.org/posts/bdaAkQ3HCX7NSDwtc)
