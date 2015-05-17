@@ -5,6 +5,6 @@ Template.Header.events({
   }
 });
 
-Template.Header.onRendered(function (){
+Template.Header.onCreated(function (){
   this.subscribe('userData');
 });

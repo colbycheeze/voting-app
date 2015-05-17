@@ -1,9 +1,9 @@
-function redirectAfterLogin(path, next) {
+function redirectIfLoggedIn(path, next) {
   var redirectPath = (Meteor.userId()) ? "/polls" : null;
   next(redirectPath);
 }
 
-function requiredLogin(path, next) {
+function requireLogin(path, next) {
   var redirectPath = (!Meteor.userId())? "/login" : null;
   next(redirectPath);
 }
@@ -21,14 +21,17 @@ FlowRouter.notFound = {
 
 FlowRouter.route('/', {
   name: 'home',
+  subscriptions: function() {
+    this.register('allPolls', Meteor.subscribe('allPolls'));
+  },
   action: function() {
-    FlowLayout.render('AppLayout', { header: 'Header', content: 'Home', footer: 'Footer' });
+    FlowLayout.render('AppLayout', { header: 'Header', content: 'Polls', footer: 'Footer' });
   }
 });
 
 FlowRouter.route('/login', {
   name: 'login',
-  middlewares: [redirectAfterLogin],
+  middlewares: [redirectIfLoggedIn],
   action: function() {
     FlowLayout.render('AppLayout', { header: 'Header', content: 'Login', footer: 'Footer' });
   }
@@ -56,7 +59,7 @@ FlowRouter.route('/polls', {
 
 FlowRouter.route('/submit', {
   name: 'submit',
-  middlewares: [requiredLogin],
+  middlewares: [requireLogin],
   action: function() {
     FlowLayout.render('AppLayout', { header: 'Header', content: 'newPoll', footer: 'Footer' });
   }

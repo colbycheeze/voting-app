@@ -1,4 +1,22 @@
 <template name="Header">
+  {{#if currentUser}}
+    {{> LoggedInHeader}}
+  {{else}}
+    {{> JumboHeader}}
+  {{/if}}
+</template>
+
+<template name="JumboHeader">
+  <div class="jumbotron">
+    <div class="text-center container">
+      <img src="http://img4.wikia.nocookie.net/__cb20140224023949/althistory/images/9/9a/Vote-icon.png" alt="Voting App">
+      <p>Create custom polls with live results.</p>
+      <p><a class="btn btn-primary btn-lg" href="{{pathFor 'login'}}" role="button">Sign Up</a></p>
+    </div>
+  </div>
+</template>
+
+<template name="LoggedInHeader">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -24,3 +42,5 @@
     </div><!-- /.container-fluid -->
   </nav>
 </template>
+
+
