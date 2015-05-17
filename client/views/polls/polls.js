@@ -1,10 +1,6 @@
-Template.Polls.onRendered(function (){
-  this.subscribe('polls');
-});
-
 Template.Polls.helpers({
   polls: function () {
-    return Polls.find({userId: Meteor.userId()});
+    return Polls.find();
   }
 });
 

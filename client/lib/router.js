@@ -4,7 +4,7 @@ function redirectAfterLogin(path, next) {
 }
 
 function requiredLogin(path, next) {
-  var redirectPath = (!Meteor.userId())? "/" : null;
+  var redirectPath = (!Meteor.userId())? "/login" : null;
   next(redirectPath);
 }
 
@@ -15,15 +15,14 @@ Accounts.onLogin(function () {
 FlowRouter.notFound = {
   name: 'not_found',
   action: function() {
-    FlowLayout.render('appLayout', { header: 'header', content: '404', footer: 'footer' });
+    FlowLayout.render('AppLayout', { header: 'Header', content: '404', footer: 'Footer' });
   }
 };
 
 FlowRouter.route('/', {
   name: 'home',
-  middlewares: [redirectAfterLogin],
   action: function() {
-    FlowLayout.render('appLayout', { header: 'header', content: 'Home', footer: 'footer' });
+    FlowLayout.render('AppLayout', { header: 'Header', content: 'Home', footer: 'Footer' });
   }
 });
 
@@ -31,31 +30,35 @@ FlowRouter.route('/login', {
   name: 'login',
   middlewares: [redirectAfterLogin],
   action: function() {
-    FlowLayout.render('appLayout', { header: 'header', content: 'Login', footer: 'footer' });
+    FlowLayout.render('AppLayout', { header: 'Header', content: 'Login', footer: 'Footer' });
+  }
+});
+
+FlowRouter.route('/polls/:id', {
+  name: 'poll',
+  subscriptions: function(params) {
+    this.register('poll', Meteor.subscribe('poll', params.id));
+  },
+  action: function(params) {
+    FlowLayout.render('AppLayout', { header: 'Header', content: 'Poll', footer: 'Footer' });
   }
 });
 
 FlowRouter.route('/polls', {
-  subscriptions: function(params) {
-    this.register('allPolls', Meteor.subscribe('allPolls'));
-  },
   name: 'polls',
+  subscriptions: function() {
+    this.register('pollsByUser', Meteor.subscribe('pollsByUser'));
+  },
   action: function() {
-    FlowLayout.render('appLayout', { header: 'header', content: 'Polls', footer: 'footer' });
+    FlowLayout.render('AppLayout', { header: 'Header', content: 'Polls', footer: 'Footer' });
   }
 });
 
 FlowRouter.route('/submit', {
   name: 'submit',
   middlewares: [requiredLogin],
-  action: function(params) {
-    FlowLayout.render('appLayout', { header: 'header', content: 'newPoll', footer: 'footer' });
+  action: function() {
+    FlowLayout.render('AppLayout', { header: 'Header', content: 'newPoll', footer: 'Footer' });
   }
 });
 
-FlowRouter.route('/polls/:id', {
-  name: 'poll',
-  action: function(params) {
-    FlowLayout.render('appLayout', { header: 'header', content: 'Poll', footer: 'footer' });
-  }
-});

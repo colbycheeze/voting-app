@@ -7,10 +7,14 @@ Meteor.publish('userData', function () {
   }
 });
 
+Meteor.publish('poll', function(pollId) {
+  return Polls.find({_id: pollId});
+});
+
 Meteor.publish('allPolls', function () {
   return Polls.find();
 });
 
-Meteor.publish('polls', function() {
-  return Polls.find({});
+Meteor.publish('pollsByUser', function(userId) {
+  return Polls.find({userId: userId || this.userId});
 });

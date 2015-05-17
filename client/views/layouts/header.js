@@ -1,23 +1,10 @@
-Template.header.events({
+Template.Header.events({
   'click [role="logout"]': function (e, tmpl) {
     Meteor.logout();
     e.preventDefault();
   }
 });
 
-Template.header.helpers({
-});
-
-/*****************************************************************************/
-/* header Life Cycle Hooks */
-/*****************************************************************************/
-Template.header.onCreated(function (){
-});
-
-Template.header.onRendered(function (){
+Template.Header.onRendered(function (){
   this.subscribe('userData');
 });
-
-Template.header.onDestroyed(function (){
-});
-

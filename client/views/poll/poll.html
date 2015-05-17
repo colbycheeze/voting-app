@@ -1,2 +1,10 @@
 <template name="Poll">
+  <div class="well">
+    <h1> {{poll.title}} </h1>
+    <ul class="list-group">
+      {{#each poll.options}}
+        <li class="list-group-item"> {{this}} </li>
+      {{/each}}
+    </ul>
+  </div>
 </template>

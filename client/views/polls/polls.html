@@ -8,14 +8,14 @@
   </div>
   <ul class="list-group">
     {{#each polls}}
-      {{> pollItem}}
-      {{else}}
+      {{> PollItem}}
+    {{else}}
       <p>No polls found.</p>
     {{/each}}
   </ul>
 </template>
 
-<template name="pollItem">
+<template name="PollItem">
   <li class="list-group-item poll-item">
     <h2>{{title}}</h2>
     <div class="action-buttons">
