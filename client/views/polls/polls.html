@@ -9,15 +9,15 @@
         <span class="text-muted h5"> Sign up to create a poll.</span>
       {{/if}}
     </h1>
-</div>
+  </div>
 
-<ul class="list-group">
-  {{#each polls}}
-    {{> PollItem}}
-    {{else}}
-    <p>No polls found.</p>
-  {{/each}}
-</ul>
+  <ul class="list-group">
+    {{#each polls}}
+      {{> PollItem}}
+      {{else}}
+      <p>No polls found.</p>
+    {{/each}}
+  </ul>
 </template>
 
 <template name="PollItem">
@@ -29,11 +29,13 @@
           <i class="fa fa-eye"></i> View
         </button>
       </a>
-      <a href="#">
-        <button type="button" class="btn btn-danger btn-md">
-          <i class="fa fa-times-circle"></i> Delete
-        </button>
-      </a>
+      {{#if currentUser}}
+        <a href="#">
+          <button type="button" class="btn btn-danger btn-md">
+            <i class="fa fa-times-circle"></i> Delete
+          </button>
+        </a>
+      {{/if}}
     </div>
   </li>
 </template>

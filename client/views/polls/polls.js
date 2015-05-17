@@ -9,3 +9,10 @@ Template.Polls.events({
     FlowRouter.go('/submit');
   }
 });
+
+Template.PollItem.events({
+  'click button.btn-danger': function (e, tmpl) {
+    e.preventDefault();
+    //remove poll
+  },
+});
