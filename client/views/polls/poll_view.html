@@ -1,0 +1,11 @@
+<template name="Poll">
+  {{#pollHeader}}
+    {{poll.title}}
+  {{/pollHeader}}
+
+  <ul class="list-group">
+    {{#each poll.options}}
+      <li class="list-group-item"> {{this}} </li>
+    {{/each}}
+  </ul>
+</template>
