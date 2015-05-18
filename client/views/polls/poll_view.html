@@ -10,23 +10,29 @@
         <ul class="list-group">
           {{#each poll.options}}
             <li class="list-group-item">
-              <h5 class="progress-title">{{this}}</h5>
-              {{#if poll.votesForOption this}}
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar"
-                    aria-valuenow="{{poll.votesForOption this}}" aria-valuemin="0"
-                    aria-valuemax="{{poll.totalVotes}}" 
-                    style="width: {{poll.percentOfTotal this}}%;">
-                    {{poll.votesForOption this}} votes of {{poll.totalVotes}}
-                  </div>
-                </div>
-              {{else}}
-                No votes yet!
-              {{/if}}
+              {{> _pollItem poll}}
             </li>
           {{/each}}
         </ul>
       </div>
     </div>
   </div>
+</template>
+
+<template name="_pollItem">
+  <h5 class="progress-title">{{..}}</h5>
+
+  {{#if votesForOption ..}}
+    <div class="progress">
+      <div class="progress-bar" role="progressbar"
+        aria-valuenow="{{votesForOption ..}}" aria-valuemin="0"
+        aria-valuemax="{{totalVotes}}" 
+        style="width: {{percentOfTotal ..}}%;">
+        {{votesForOption ..}} votes of {{totalVotes}}
+      </div>
+    </div>
+
+  {{else}}
+    No votes yet!
+  {{/if}}
 </template>
