@@ -2,19 +2,21 @@ Polls = new Mongo.Collection("Polls");
 
 Polls.helpers({
   totalVotes: function() {
-    return _.reduce(this.options, function(sum, option) {
-      return sum + option.votes;
-    }, 0);
+    return Votes.find().count();
   },
 
-  percentOfTotal: function(numVotes) {
+  votesForOption: function(option) {
+    return Votes.find({option: option}).count();
+  },
+
+  percentOfTotal: function(option) {
     var totalVotes = this.totalVotes();
-    return (numVotes / totalVotes) * 100;
+    return (this.votesForOption(option) / this.totalVotes()) * 100;
   }
 
 });
 
-this.Schemas || (this.Schemas = {});
+var schemas = this.Schemas || (this.Schemas = {});
 this.Schemas.Polls = new SimpleSchema({
   userId: {
     label: "User Id",
@@ -35,21 +37,9 @@ this.Schemas.Polls = new SimpleSchema({
   },
 
   options: {
-    type: Array,
-    optional: true,
-  },
-    'options.$': {type: Object},
-    'options.$.name': {type: String},
-    'options.$.votes': {
-      type: Number,
-      autoValue: function() {
-      if ( this.isSet ){
-        return this.value;
-      } else {
-        return Meteor.userId();
-      }
- }}
-
+    label: "Options",
+    type:  [ String ]
+  }
 });
 
 Polls.attachSchema(this.Schemas.Polls);
@@ -67,13 +57,3 @@ Polls.allow({
     return userId === doc.userId;
   }
 });
-
-
-/*Schemas.Checklist = new SimpleSchema({
-  name: { type: String },
-  releaseCreation: { type: Array, optional: true },
-  'releaseCreation.$': { type: Object },
-  'releaseCreation.$.index': { type: Number },
-  'releaseCreation.$.description': { type: String },
-  'releaseCreation.$.completed': { type: Boolean }
-  });*/

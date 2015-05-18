@@ -15,18 +15,19 @@
   <li class="list-group-item poll-item">
     <h2>{{title}}</h2>
     <div class="action-buttons">
-      <a href="{{pathFor 'poll' id=_id}}">
-        <button type="button" class="btn btn-success btn-md">
-          <i class="fa fa-eye"></i> View
-        </button>
-      </a>
-      {{#if currentUser}}
+      {{#if owner}}
         <a href="#">
           <button type="button" class="btn btn-danger btn-md">
-            <i class="fa fa-times-circle"></i> Delete
+            <i class="fa fa-trash-o fa-lg"></i>
           </button>
         </a>
       {{/if}}
+
+      <a href="{{pathFor 'poll' id=_id}}">
+        <button type="button" class="btn btn-success btn-md">
+          <i class="fa fa-eye fa-lg"></i> View
+        </button>
+      </a>
     </div>
   </li>
 </template>

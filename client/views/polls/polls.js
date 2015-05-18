@@ -7,6 +7,12 @@ Template.Polls.helpers({
 Template.PollItem.events({
   'click button.btn-danger': function (e, tmpl) {
     e.preventDefault();
-    //remove poll
+    Polls.remove({_id: this._id});
   },
+});
+
+Template.PollItem.helpers({
+  owner: function() {
+    return this.userId == Meteor.userId();
+  }
 });

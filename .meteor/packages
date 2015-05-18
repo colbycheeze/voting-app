@@ -13,7 +13,6 @@ arillo:flow-router-helpers
 fourseven:scss@2.1.1
 accounts-google
 accounts-password
-accounts-github
 meteorhacks:fast-render
 msavin:mongol
 aldeed:autoform

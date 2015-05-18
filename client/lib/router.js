@@ -38,6 +38,7 @@ FlowRouter.route('/polls/:id', {
   name: 'poll',
   subscriptions: function(params) {
     this.register('poll', Meteor.subscribe('poll', params.id));
+    this.register('vote', Meteor.subscribe('vote', params.id));
   },
   action: function(params) {
     FlowLayout.render('AppLayout', { header: 'Header', content: 'Poll', footer: 'Footer' });
