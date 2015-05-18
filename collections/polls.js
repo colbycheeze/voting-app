@@ -1,5 +1,19 @@
 Polls = new Mongo.Collection("Polls");
 
+Polls.helpers({
+  totalVotes: function() {
+    return _.reduce(this.options, function(sum, option) {
+      return sum + option.votes;
+    }, 0);
+  },
+
+  percentOfTotal: function(numVotes) {
+    var totalVotes = this.totalVotes();
+    return (numVotes / totalVotes) * 100;
+  }
+
+});
+
 this.Schemas || (this.Schemas = {});
 this.Schemas.Polls = new SimpleSchema({
   userId: {
@@ -16,14 +30,26 @@ this.Schemas.Polls = new SimpleSchema({
   },
 
   title: {
-    type: String,
-    label: 'Name Your Poll'
+    label: 'Name Your Poll',
+    type: String
   },
 
   options: {
-    type: [String],
-    label: 'Options'
-  }
+    type: Array,
+    optional: true,
+  },
+    'options.$': {type: Object},
+    'options.$.name': {type: String},
+    'options.$.votes': {
+      type: Number,
+      autoValue: function() {
+      if ( this.isSet ){
+        return this.value;
+      } else {
+        return Meteor.userId();
+      }
+ }}
+
 });
 
 Polls.attachSchema(this.Schemas.Polls);

@@ -8,9 +8,6 @@ function requireLogin(path, next) {
   next(redirectPath);
 }
 
-Accounts.onLogin(function () {
-  FlowRouter.go('polls');
-});
 
 FlowRouter.notFound = {
   name: 'not_found',
@@ -49,6 +46,7 @@ FlowRouter.route('/polls/:id', {
 
 FlowRouter.route('/polls', {
   name: 'polls',
+  middlewares: [requireLogin],
   subscriptions: function() {
     this.register('pollsByUser', Meteor.subscribe('pollsByUser'));
   },

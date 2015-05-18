@@ -1,12 +1,14 @@
 <template name="newPoll">
 
-{{#autoForm collection="Polls" type="insert" id="newPollForm"}}
-  <fieldset>
-    <legend>Create a New Poll</legend>
-    {{> afQuickField name="title"}}
-    {{> afQuickField name="options"}}
-  </fieldset>
-  <button type="submit" class="btn btn-primary">Create Poll</button>
-{{/autoForm}}
+  <div class="col-md-8 col-md-offset-2">
+    {{#autoForm collection="Polls" type="insert" id="newPollForm"}}
+      <fieldset>
+        <legend>Create a New Poll</legend>
+        {{> afQuickField name="title"}}
+        {{> afQuickField name="options" omitFields="options.$.votes"}}
+      </fieldset>
+      <button type="submit" class="btn btn-primary">Create Poll</button>
+    {{/autoForm}}
+  </div>
 
 </template>

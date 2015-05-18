@@ -1,11 +1,27 @@
 <template name="Poll">
   {{#pollHeader}}
-    {{poll.title}}
+    Cast Your Vote
   {{/pollHeader}}
 
-  <ul class="list-group">
-    {{#each poll.options}}
-      <li class="list-group-item"> {{this}} </li>
-    {{/each}}
-  </ul>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 ">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><span class="h4">{{poll.title}}</span></div>
+        <ul class="list-group">
+          {{#each poll.options}}
+            <li class="list-group-item">
+              <h5 class="progress-title">{{name}}</h5>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar"
+                  aria-valuenow="{{votes}}" aria-valuemin="0"
+                  aria-valuemax="{{sumOfVotes}}" style="width: {{percentOfTotal votes}}%;">
+                  {{votes}} votes 
+                </div>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
 </template>

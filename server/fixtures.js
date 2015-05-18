@@ -11,19 +11,31 @@ Meteor.startup(function () {
     Polls.insert({
       userId: userId,
       title: 'Favorite ice cream',
-      options: ['chocolate', 'vanilla', 'strawberry']
+      options: [
+        {name: 'chocolate', votes: 3 },
+        {name: 'strawberry', votes: 1 },
+        {name: 'vanilla', votes: 5 }
+     ]
     });
 
     Polls.insert({
       userId: userId,
       title: 'Favorite soda',
-      options: ['coke', 'pepsi', 'sprite']
+      options: [
+        {name: 'coke', votes: 30 },
+        {name: 'pepsi', votes: 15 },
+        {name: 'sprite', votes: 5 }
+     ]
     });
 
     Polls.insert({
       userId: userId,
       title: 'Favorite pokemon',
-      options: ['pikachu', 'charmander', 'squirtle', 'bulbasaur']
+      options: [
+        {name: 'pikachu', votes: 20 },
+        {name: 'charmander', votes: 10 },
+        {name: 'squirtle', votes: 5 }
+     ]
     });
   }
 });
