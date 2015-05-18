@@ -1,6 +1,10 @@
 <template name="Poll">
   {{#pollHeader}}
-    Cast Your Vote
+    {{#if hasVoted}}
+      Poll Results
+    {{else}}
+      Cast Your Vote
+    {{/if}}
   {{/pollHeader}}
 
   <div class="row">
@@ -10,7 +14,12 @@
         <ul class="list-group">
           {{#each poll.options}}
             <li class="list-group-item">
-              {{> _pollItem poll}}
+              <h5 class="progress-title">{{this}}</h5>
+              {{#if hasVoted}}
+                {{> _pollResults poll}}
+                {{else}}
+                <button class="btn btn-primary" data-action="vote">Vote</button>
+              {{/if}}
             </li>
           {{/each}}
         </ul>
@@ -19,9 +28,7 @@
   </div>
 </template>
 
-<template name="_pollItem">
-  <h5 class="progress-title">{{..}}</h5>
-
+<template name="_pollResults">
   {{#if votesForOption ..}}
     <div class="progress">
       <div class="progress-bar" role="progressbar"
@@ -32,7 +39,7 @@
       </div>
     </div>
 
-  {{else}}
+    {{else}}
     No votes yet!
   {{/if}}
 </template>
