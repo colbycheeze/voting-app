@@ -30,12 +30,14 @@
         <ul class="nav navbar-nav">
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <li class="{{isActivePath regex='/$'}}"><a href="{{pathFor 'home'}}"><i class="fa fa-home fa-lg"></i></a></li>
           {{#if currentUser}}
+            <li class="{{isActivePath regex='polls$'}}"> <a href="{{pathFor 'polls'}}">My Polls</a> </li>
             <li> <img class="avatar" src="{{currentUser.services.google.picture}}"> </li>
-            <li> <a href="#"><i class="fa fa-user"></i> {{currentUser.profile.name}}</a> </li>
-            <li> <a role="logout" href="#"><i class="fa fa-sign-out"> Logout</i></a></li>
+            <li> <a href="{{pathFor 'polls'}}"><i class="fa fa-user fa-lg"></i> {{currentUser.profile.name}}</a> </li>
+            <li> <a role="logout" href="#"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
           {{else}}
-            <li class="{{isActivePath regex='login' className='active'}}"><a href="{{pathFor 'login'}}">Login</a></li>
+            <li class="{{isActivePath regex='login'}}"><a href="{{pathFor 'login'}}">Login</a></li>
           {{/if}}
         </ul>
       </div><!-- /.navbar-collapse -->
