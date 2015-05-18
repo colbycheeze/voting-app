@@ -6,6 +6,9 @@ Template.Poll.helpers({
     return Votes.findOne();
   },
   hasVoted: function() {
+    if(!Meteor.userId())
+      return true;
+
     var pollId = Polls.findOne();
     pollId = pollId ? pollId._id : undefined;
 
