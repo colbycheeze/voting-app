@@ -35,7 +35,7 @@
           <li class="{{isActivePath regex='/$'}}"><a href="{{pathFor 'home'}}"><i class="fa fa-home fa-lg"></i></a></li>
           {{#if currentUser}}
             <li class="{{isActivePath regex='polls$'}}"> <a href="{{pathFor 'polls'}}">My Polls</a> </li>
-            <li> <img class="avatar" src="{{currentUser.profile.gravatarUrl}}"> </li>
+            <li> <img class="avatar" src="{{currentUser.profile.avatar}}"> </li>
             <li> <a role="logout" href="#"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
           {{else}}
             <li class="{{isActivePath regex='login'}}"><a href="{{pathFor 'login'}}">Login</a></li>

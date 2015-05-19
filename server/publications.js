@@ -1,5 +1,5 @@
 Meteor.publish('userData', function () {
-  return Meteor.users.find({}, {fields: {'profile.gravatarUrl': 1}});
+  return Meteor.users.find({}, {fields: {'profile.avatar': 1}});
 });
 
 Meteor.publish('poll', function(pollId) {

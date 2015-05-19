@@ -1,0 +1,16 @@
+{
+  "production" : {
+    "google" : {
+      "clientId": "YOUR_KEY_HERE",
+      "secret": "YOUR_KEY_HERE"
+    }
+  },
+
+  "development" : {
+    "google" : {
+      "clientId": "YOUR_KEY_HERE",
+      "secret": "YOUR_KEY_HERE"
+    }
+  }
+}
+
