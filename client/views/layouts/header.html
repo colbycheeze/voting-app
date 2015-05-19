@@ -9,7 +9,9 @@
 <template name="JumboHeader">
   <div class="jumbotron">
     <div class="text-center container">
-      <img src="http://img4.wikia.nocookie.net/__cb20140224023949/althistory/images/9/9a/Vote-icon.png" alt="Voting App">
+      <a href="/"><img
+        src="http://img4.wikia.nocookie.net/__cb20140224023949/althistory/images/9/9a/Vote-icon.png"
+        alt="Voting App"></a>
       <p>Create custom polls with live results.</p>
       <p><a class="btn btn-primary btn-lg" href="{{pathFor 'login'}}" role="button">Sign In / Join</a></p>
     </div>
@@ -33,8 +35,7 @@
           <li class="{{isActivePath regex='/$'}}"><a href="{{pathFor 'home'}}"><i class="fa fa-home fa-lg"></i></a></li>
           {{#if currentUser}}
             <li class="{{isActivePath regex='polls$'}}"> <a href="{{pathFor 'polls'}}">My Polls</a> </li>
-            <li> <img class="avatar" src="{{currentUser.services.google.picture}}"> </li>
-            <li> <a href="{{pathFor 'polls'}}"><i class="fa fa-user fa-lg"></i> {{currentUser.profile.name}}</a> </li>
+            <li> <img class="avatar" src="{{currentUser.profile.gravatarUrl}}"> </li>
             <li> <a role="logout" href="#"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
           {{else}}
             <li class="{{isActivePath regex='login'}}"><a href="{{pathFor 'login'}}">Login</a></li>

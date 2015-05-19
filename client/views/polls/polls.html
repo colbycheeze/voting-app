@@ -1,6 +1,10 @@
 <template name="Polls">
   {{#pollHeader}}
-    Active Polls
+    {{#if isActivePath regex='/$'}}
+      Active Polls
+    {{else}}
+      Your Polls
+    {{/if}}
   {{/pollHeader}}
   <ul class="list-group">
     {{#each polls}}
@@ -13,6 +17,7 @@
 
 <template name="PollItem">
   <li class="list-group-item poll-item">
+    <img class="avatar" src="{{gravatar}}">
     <h2>{{title}}</h2>
     <div class="action-buttons">
       {{#if owner}}

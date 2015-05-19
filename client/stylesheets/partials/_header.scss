@@ -1,5 +1,12 @@
 .navbar {
   background-color: $brand-primary;
+  a {
+    color: black;
+  }
+
+  .navbar-nav > .active > a, a:hover, a:focus {
+    background-color: darken($brand-primary, 15%);
+  }
 }
 .navbar-brand {
   margin-left: 10px;

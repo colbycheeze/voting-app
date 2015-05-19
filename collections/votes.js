@@ -1,6 +1,6 @@
 Votes = new Mongo.Collection("Votes");
 
-this.Schemas || (this.Schemas = {});
+var schemas = this.Schemas || (this.Schemas = {});
 this.Schemas.Votes = new SimpleSchema({
   userId: {
     label: "User Id",

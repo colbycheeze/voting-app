@@ -20,6 +20,7 @@ FlowRouter.route('/', {
   name: 'home',
   subscriptions: function() {
     this.register('allPolls', Meteor.subscribe('allPolls'));
+    this.register('userData', Meteor.subscribe('userData'));
   },
   action: function() {
     FlowLayout.render('AppLayout', { header: 'Header', content: 'Polls', footer: 'Footer' });
@@ -50,6 +51,7 @@ FlowRouter.route('/polls', {
   middlewares: [requireLogin],
   subscriptions: function() {
     this.register('pollsByUser', Meteor.subscribe('pollsByUser'));
+    this.register('userData', Meteor.subscribe('userData'));
   },
   action: function() {
     FlowLayout.render('AppLayout', { header: 'Header', content: 'Polls', footer: 'Footer' });
